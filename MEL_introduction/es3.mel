@@ -1,0 +1,7 @@
+/**
+	Write a script that based on selection will print how many objects / nodes the user
+	has selected.
+*/
+string $selections[] = `ls -sl`;
+int $selected_objs = size($selections);
+print $selected_objs;

@@ -1,0 +1,17 @@
+/**
+	Make a copy of the script above and modify the copy so that it now prints
+	how many joints are selected, how many meshes are selected and how many transforms
+	are selected.
+*/
+
+string $selections[] = `ls -sl`;
+string $joints[]=`ls -sl -type "joint"`;
+string $meshes[]=`ls -sl -type "mesh"`;
+string $transfm[]=`ls -sl -type "transform"`;
+int $selected_joints = size($joints);
+int $selected_objs = size($selections);
+int $selected_meshes = size($meshes);
+int $selected_transfm = size($transfm);
+
+string $res = "Objecs: " + $selected_objs + " Joints: " + $selected_joints + " Meshes: " + $selected_meshes + " Transforms: " + $selected_transfm;
+print $res;

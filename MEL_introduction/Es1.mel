@@ -1,0 +1,31 @@
+/**  
+	Write a script that will create 3 polySpheres and 3 polyCubes.
+	The 3 polySphere should be place 5 units from each other in X. but not moved in Y or Z.
+	The 3 polyCubes should be on top of the spheres in the viewport (3 units above)
+	The first cube should have a red lambert material assigned to it,
+	The second cube should have a green lambert material assigned to it
+	The third cube should have a blue blinn material assigned to it.
+*/
+
+// X offset for objects
+int $delta_x = 0;
+
+// Create materials array for cubes
+string $cube_materials[3];
+$cube_materials[0] = `shadingNode -asShader lambert`;
+setAttr ($cube_materials[0] + ".colorR") 1;
+$cube_materials[1] = `shadingNode -asShader lambert`;
+setAttr ($cube_materials[1] + ".colorG") 1;
+$cube_materials[2] = `shadingNode -asShader blinn`;
+setAttr ($cube_materials[2] + ".colorB") 1;
+
+// Scene loop
+for ($i = 0, $j = 5; $i < 3; $i=$i+1)
+{
+    polySphere -r 1 -name ("sphere" + $i);
+    move -r -x $delta_x;
+    polyCube -name ("cube" + $i);
+    move -r -x -y $delta_x 3 ;
+    hyperShade -assign $cube_materials[$i];
+    $delta_x += $j;
+}
