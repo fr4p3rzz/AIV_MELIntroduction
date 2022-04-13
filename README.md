@@ -1,2 +1,2 @@
 # AIV_MELIntroduction
-Introductive excercises for learning Maya MEL language
+Introductive exercises for learning Maya MEL language
