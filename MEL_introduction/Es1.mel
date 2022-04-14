@@ -20,7 +20,7 @@ $cube_materials[2] = `shadingNode -asShader blinn`;
 setAttr ($cube_materials[2] + ".colorB") 1;
 
 // Scene loop
-for ($i = 0, $j = 5; $i < 3; $i=$i+1)
+for ($i = 0, $j = 5; $i < 3; $i++)
 {
     polySphere -r 1 -name ("sphere" + $i);
     move -r -x $delta_x;
